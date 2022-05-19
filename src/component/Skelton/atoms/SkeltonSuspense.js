@@ -19,7 +19,7 @@ function SkeletonSuspense({
       }
       setInternalData(tempComponent);
     }
-  }, [data]);
+  }, [data, multiplier]);
 
   const renderUI = () => {
     return internalData.map((value) => {

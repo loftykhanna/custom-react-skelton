@@ -22,7 +22,9 @@ Thought process behind writing component in above way
 - Atom components are Div(SkeltonDiv), Text(SkeltonText) and Paragraph(SkeltonP) 
 - Paragraph in this case is 1 line `<p></p>` tag.
 - Text conatains various paragraphs
-- Div is like a container, you can give its width, height, radius and its type.
+- Div is like a container, you can give its width, height, radius and its type(like circle).
+
+
 
 
  
