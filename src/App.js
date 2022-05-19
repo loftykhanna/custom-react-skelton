@@ -1,6 +1,5 @@
 import "./App.css";
 
-import Skelton from "./component/Skelton";
 import ExampleSkeletonCard from "./example/SkeletonCard";
 import ExampleSkeletonMedia from "./example/SkeletonMedia";
 

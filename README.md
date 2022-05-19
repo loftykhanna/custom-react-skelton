@@ -1,10 +1,9 @@
-# Getting Started with Create React App
+# Custom React Skeleton
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Custom React Skeleton components
+## Test Cases
 
-## Available Scripts
-
-In the project directory, you can run:
+Intentionally No test cases are written because of time constraint
 
 ### `npm start`
 
