@@ -1,12 +1,16 @@
 import "./App.css";
 
 import Skelton from "./component/Skelton";
+import ExampleSkeletonCard from "./example/SkeletonCard";
+import ExampleSkeletonMedia from "./example/SkeletonMedia";
 
 function App() {
   return (
     <div className="App">
-      <Skelton  type='media'/>
-      <Skelton  type='card'/>
+      <div className="exampleWrapper">
+      <ExampleSkeletonMedia />
+      <ExampleSkeletonCard />
+      </div>
     </div>
   );
 }

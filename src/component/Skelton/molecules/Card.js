@@ -4,7 +4,7 @@ import SkeltonDiv from '../atoms/SkeltonDiv';
 import './style.css'
 
 function SkeltonCard() {
-  return (<div className="data-card">
+  return (<div className="skelton-data-card">
     <SkeltonDiv  width='100%' height='250px'/>
     <div className='card-headline-container'>
     <SkeltonDiv  width='70%' height='40px'/>
