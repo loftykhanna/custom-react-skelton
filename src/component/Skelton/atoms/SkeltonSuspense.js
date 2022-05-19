@@ -24,7 +24,7 @@ function SkeletonSuspense({
   const renderUI = () => {
     return internalData.map((value) => {
     // If value of array is not __1 return actual component elese return skeleton
-      if (value == "__1") return Suspense;
+      if (value === "__1") return Suspense;
       return React.cloneElement(ActualComponent, { ...value });
     });
   };

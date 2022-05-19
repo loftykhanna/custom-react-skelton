@@ -5,6 +5,28 @@ Custom React Skeleton components
 
 Intentionally No test cases are written because of time constraint
 
+## Basic Usage
+Its not published on npm, import as 
+
+```tsx
+import Skeleton, {SkeltonDiv, SkeltonP, SkeltonText, SkeltonSuspense}  from 'path-to-component/Skeleton'
+
+```
+
+Skelton is default export and all others are named export.
+
+## Thought Process
+Thought process behind writing component in above way
+- Have divided componenets into Atoms and Molecules.
+- Atoms Make Molecules.
+- Atom components are Div(SkeltonDiv), Text(SkeltonText) and Paragraph(SkeltonP) 
+- Paragraph in this case is 1 line `<p></p>` tag.
+- Text conatains various paragraphs
+- Div is like a container, you can give its width, height, radius and its type.
+
+
+ 
+
 ### `npm start`
 
 Runs the app in the development mode.\
