@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 function SkeletonSuspense({
   Suspense,
   ActualComponent,
-  multiplier,
+  multiplier = 5,
   data = [],
 }) {
   const [internalData, setInternalData] = useState(data);
@@ -22,10 +22,11 @@ function SkeletonSuspense({
   }, [data, multiplier]);
 
   const renderUI = () => {
-    return internalData.map((value) => {
+    return internalData.map((value, i) => {
     // If value of array is not __1 return actual component elese return skeleton
+    // Here key is not optimised, can be done better
       if (value === "__1") return Suspense;
-      return React.cloneElement(ActualComponent, { ...value });
+      return React.cloneElement(ActualComponent, { ...value, key: i });
     });
   };
 

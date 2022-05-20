@@ -11,8 +11,6 @@ const ExampleSkeletonCard = (props) => {
 
   const [data, setData] = useState([]);
 
-
-
   useEffect(() => {
     // Intentionally delay the function execution
     new Promise((res) => {
@@ -20,9 +18,7 @@ const ExampleSkeletonCard = (props) => {
         res();
       }, 3000);
     }).then(() => {
-     
-        setTimeout(() => setData(fakeData), 2000);
-      
+        setTimeout(() => setData(fakeData), 2000)
     });
   }, []);
 
