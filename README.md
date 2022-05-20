@@ -1,6 +1,6 @@
 # Custom React Skeleton
 
-Custom React Skeleton components - you may find typo error in skeleton name at many places, please ignore
+Custom React Skeleton components - [Live Demo](https://6286d040663ad60008b52e6a--resilient-sprinkles-3564ee.netlify.app/)
 ## Test Cases
 
 Intentionally No test cases are written because of time constraint
@@ -26,72 +26,184 @@ Thought process behind writing component in above way
 - Will disucss about Skelton and SkletonSuspense in details below
 
 
+### `SkeltonDiv`
+
+It is used to render skeleton/loading container/div
+
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>width?: string</code></td>
+            <td>Width of Skeleton Div</td>
+            <td><code>50px</code></td>
+        </tr>
+      <tr>
+            <td><code>height?: string</code></td>
+            <td>Height of Skeleton Div</td>
+            <td><code>50px</code></td>
+        </tr>
+        <tr>
+            <td><code>type?: 'box'|'circle'</code></td>
+            <td>The highlight color in the skeleton animation.</td>
+            <td><code>box</code></td>
+        </tr>
+        <tr>
+            <td><code>borderRadius?: string</code></td>
+            <td>Radius of the Div</td>
+            <td><code>'100%'</code></td>
+        </tr>
+    </tbody>
+</table>
+
+#### Example
+
+```tsx
+  <SkeltonDiv width='50px' height={'50px'} type='circle'/>
+
+```
+![image](https://user-images.githubusercontent.com/10628479/169420656-4b940f9c-0f31-473a-99ba-87c9fd2235c9.png)
+
+### `SkeltonP`
+
+It is used to render skeleton/loading p tag
+
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>width?: string</code></td>
+            <td>Width of Skeleton Div</td>
+            <td><code>100%</code></td>
+        </tr>
+   </tbody>
+</table>
+
+#### Example
+
+```tsx
+ <SkeltonP width={'50%'} />:
+```
+![image](https://user-images.githubusercontent.com/10628479/169421030-914aa482-f4b9-4bb9-90c7-f7023ce7aacf.png)
+
+
+### `SkeltonText`
+
+It is used to render skeleton/loading mutiple `SkeltonP`
+
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>count?: number</code></td>
+            <td>Number of P tags inside text</td>
+            <td><code>1</code></td>
+        </tr>
+   </tbody>
+</table>
+
+#### Example
+
+```tsx
+  <SkeltonText  count={4}/>
+```
+![image](https://user-images.githubusercontent.com/10628479/169421331-859d23bf-a357-4cd6-beec-d5ea97b11dc1.png)
 
 
 
 
 
- 
+### `Skeleton`
 
-### `npm start`
+It is a prebuilt molecules - made from existing atoms -> skeleton is of two types card and media
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>type?: 'card'| 'media'</code></td>
+            <td> Render different types of prebuilt skeleton - Media or Cards</td>
+            <td><code>'card'</code></td>
+        </tr>
+   </tbody>
+</table>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Example
 
-### `npm test`
+```tsx
+<Skelton type="card" />
+```
+![image](https://user-images.githubusercontent.com/10628479/169421620-36f6f74e-5c52-469d-b964-6f0960d58936.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `SkeltonSuspense`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Skeleton suspense is used when u have same multiple items to render like flipkart product page. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### How SkeltonSuspense works?
+- you pass data to as props to this componenet. 
+- If data array is empty it will render skeleton and count of skeleton is equal to multiplier which is also passed as props
+- once you recieve data from some api or async way, you just update data prop, it will render actual component.
+- Simply if data is empty it will render skeleton else will render actual component.
+- Actual component and Suspense componenet are passed as props 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Suspense?: reactComponenet/code></td>
+            <td>Skeleton componenet which u want to render if data is not loaded</td>
+            <td></td>
+        </tr>
+      <tr>
+            <td><code>ActualComponent?: reactComponenet/code></td>
+            <td>Actual componenet which you want to render when data is loaded - suspense componenet will take care of iterartions</td>
+            <td></td>
+        </tr>
+      <tr>
+            <td><code>multiplier?: number</code></td>
+            <td>No. of skeleton you want to show if data is still loading</td>
+            <td><code>5</code></td>
+        </tr>
+        <tr>
+            <td><code>data?: Array</code></td>
+            <td>Data which will be iterated for rendering Actual component</td>
+            <td><code>[]</code></td>
+        </tr>
+    </tbody>
+</table>
 
-### `npm run eject`
+#### Example
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Please see example folder for better understanding
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
