@@ -1,6 +1,6 @@
 # Custom React Skeleton
 
-Custom React Skeleton components
+Custom React Skeleton components - you may find typo error in skeleton name at many places, please ignore
 ## Test Cases
 
 Intentionally No test cases are written because of time constraint
@@ -23,6 +23,10 @@ Thought process behind writing component in above way
 - Paragraph in this case is 1 line `<p></p>` tag.
 - Text conatains various paragraphs
 - Div is like a container, you can give its width, height, radius and its type(like circle).
+- Will disucss about Skelton and SkletonSuspense in details below
+
+
+
 
 
 

@@ -71,37 +71,3 @@
   .skeleton-circle{
       border-radius: 50%;
   }
-
-  #u_0_v {
-    width: 500px;
-    margin: 0 auto;
-  }
-
-
-.lightui1{border:1px solid;border-color:#bdbdbd;border-radius:2px;
-    padding: 20px;
-    background: #ffffff;}
-    
-    .lightui1-shimmer {
-      -webkit-animation-duration: 1s;
-      -webkit-animation-fill-mode: forwards;
-      -webkit-animation-iteration-count: infinite;
-      -webkit-animation-name: placeHolderShimmer;
-      -webkit-animation-timing-function: linear;
-      background: #d8d8d8;
-      background-image: linear-gradient(to right, #d8d8d8 0%, #bdbdbd 20%, #d8d8d8 40%, #d8d8d8 100%);
-      background-repeat: no-repeat;
-      background-size: 800px 104px;
-      height: 104px;
-      position: relative
-    }
-    
-    .lightui1-shimmer div {
-      background: #ffffff;
-      height: 6px;
-      left: 0;
-      position: absolute;
-      right: 0
-    }
-    
-    
