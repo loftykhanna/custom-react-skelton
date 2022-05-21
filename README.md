@@ -1,6 +1,6 @@
 # Custom React Skeleton
 
-Custom React Skeleton components - [Live Demo](https://6286d040663ad60008b52e6a--resilient-sprinkles-3564ee.netlify.app/)
+Custom React Skeleton components - [Live Demo](https://6286d040663ad60008b52e6a-resilient-sprinkles-3564ee.netlify.app/)
 
 ## Performance
 
