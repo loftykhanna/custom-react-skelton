@@ -1,0 +1,73 @@
+@keyframes loading {
+    0% {
+      transform: translateX(0);
+    }
+    50%,
+    100% {
+      transform: translateX(100vw);
+    }
+  }
+  
+  .skeleton-item {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  .skeleton-div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #d8d8d8 0%, #bdbdbd 20%, #d8d8d8 40%, #d8d8d8 100%);
+    animation: loading 2s infinite linear;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  
+  .skeleton-div {
+    background: #d8d8d8;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .skelton-text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .skeleton-text {
+    width: 100%;
+    height: 18px;
+    background: #d8d8d8;
+    position: relative;
+    overflow: hidden;
+    margin: 6px 0px 6px 0px
+  }
+  
+  .skeleton-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(to right, #d8d8d8 0%, #bdbdbd 20%, #d8d8d8 40%, #d8d8d8 100%);
+      animation: loading 2s infinite linear;
+      background-repeat: no-repeat;
+      background-size: 800px 104px;
+  }
+  
+  .skeleton-circle{
+      border-radius: 50%;
+  }

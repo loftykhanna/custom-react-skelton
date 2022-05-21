@@ -1,70 +1,213 @@
-# Getting Started with Create React App
+# Custom React Skeleton
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Custom React Skeleton components - [Live Demo](https://6286d040663ad60008b52e6a-resilient-sprinkles-3564ee.netlify.app/)
 
-## Available Scripts
+## Performance
 
-In the project directory, you can run:
+By default all components - atoms and molecules are rendered using React.memo for boosting performance.
+## Test Cases
 
-### `npm start`
+Intentionally No test cases are written because of time constraint
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Basic Usage
+Its not published on npm, import as 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```tsx
+import Skeleton, {SkeltonDiv, SkeltonP, SkeltonText, SkeltonSuspense}  from 'path-to-component/Skeleton'
 
-### `npm test`
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Skelton is default export and all others are named export.
 
-### `npm run build`
+## Thought Process
+Thought process behind writing component in above way
+- Have divided componenets into Atoms and Molecules.
+- Atoms Make Molecules.
+- Atom components are Div(SkeltonDiv), Text(SkeltonText) and Paragraph(SkeltonP) 
+- Paragraph in this case is 1 line `<p></p>` tag.
+- Text conatains various paragraphs
+- Div is like a container, you can give its width, height, radius and its type(like circle).
+- Will disucss about Skelton and SkletonSuspense in details below
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `SkeltonDiv`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+It is used to render skeleton/loading container/div
 
-### `npm run eject`
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>width?: string</code></td>
+            <td>Width of Skeleton Div</td>
+            <td><code>50px</code></td>
+        </tr>
+      <tr>
+            <td><code>height?: string</code></td>
+            <td>Height of Skeleton Div</td>
+            <td><code>50px</code></td>
+        </tr>
+        <tr>
+            <td><code>type?: 'box'|'circle'</code></td>
+            <td>The highlight color in the skeleton animation.</td>
+            <td><code>box</code></td>
+        </tr>
+        <tr>
+            <td><code>borderRadius?: string</code></td>
+            <td>Radius of the Div</td>
+            <td><code>'100%'</code></td>
+        </tr>
+    </tbody>
+</table>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Example
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```tsx
+  <SkeltonDiv width='50px' height={'50px'} type='circle'/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+![image](https://user-images.githubusercontent.com/10628479/169420656-4b940f9c-0f31-473a-99ba-87c9fd2235c9.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### `SkeltonP`
 
-## Learn More
+It is used to render skeleton/loading p tag
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>width?: string</code></td>
+            <td>Width of Skeleton Div</td>
+            <td><code>100%</code></td>
+        </tr>
+   </tbody>
+</table>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Example
 
-### Code Splitting
+```tsx
+ <SkeltonP width={'50%'} />:
+```
+![image](https://user-images.githubusercontent.com/10628479/169421030-914aa482-f4b9-4bb9-90c7-f7023ce7aacf.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+### `SkeltonText`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+It is used to render skeleton/loading mutiple `SkeltonP`
 
-### Making a Progressive Web App
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>count?: number</code></td>
+            <td>Number of P tags inside text</td>
+            <td><code>1</code></td>
+        </tr>
+   </tbody>
+</table>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Example
 
-### Advanced Configuration
+```tsx
+  <SkeltonText  count={4}/>
+```
+![image](https://user-images.githubusercontent.com/10628479/169421331-859d23bf-a357-4cd6-beec-d5ea97b11dc1.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `Skeleton`
+
+It is a prebuilt molecules - made from existing atoms -> skeleton is of two types card and media
+
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>type?: 'card'| 'media'</code></td>
+            <td> Render different types of prebuilt skeleton - Media or Cards</td>
+            <td><code>'card'</code></td>
+        </tr>
+   </tbody>
+</table>
+
+#### Example
+
+```tsx
+<Skelton type="card" />
+```
+![image](https://user-images.githubusercontent.com/10628479/169421620-36f6f74e-5c52-469d-b964-6f0960d58936.png)
+
+
+### `SkeltonSuspense`
+
+Skeleton suspense is used when u have same multiple items to render like flipkart product page. 
+
+#### How SkeltonSuspense works?
+- you pass data to as props to this componenet. 
+- If data array is empty it will render skeleton and count of skeleton is equal to multiplier which is also passed as props
+- once you recieve data from some api or async way, you just update data prop, it will render actual component.
+- Simply if data is empty it will render skeleton else will render actual component.
+- Actual component and Suspense componenet are passed as props 
+
+<table>
+    <thead>
+        <tr>
+            <th>Prop</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Suspense?: reactComponenet/code></td>
+            <td>Skeleton componenet which u want to render if data is not loaded</td>
+            <td></td>
+        </tr>
+      <tr>
+            <td><code>ActualComponent?: reactComponenet/code></td>
+            <td>Actual componenet which you want to render when data is loaded - suspense componenet will take care of iterartions</td>
+            <td></td>
+        </tr>
+      <tr>
+            <td><code>multiplier?: number</code></td>
+            <td>No. of skeleton you want to show if data is still loading</td>
+            <td><code>5</code></td>
+        </tr>
+        <tr>
+            <td><code>data?: Array</code></td>
+            <td>Data which will be iterated for rendering Actual component</td>
+            <td><code>[]</code></td>
+        </tr>
+    </tbody>
+</table>
+
+#### Example
+
+Please see example folder for better understanding
+
