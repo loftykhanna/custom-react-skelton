@@ -1,30 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 import Skelton, { SkeltonSuspense } from "../component/Skelton";
 
 import axios from "axios";
 import "./style.css";
-const Media = (item) => {
-  console.log("from media");
-  return (
-    <li key={item.id} className="item">
-      <div>
-        <img className="img" src={item.avatar} alt="" />
-      </div>
-      <div className="info">
-        <p className="m-0">
-          <strong>
-            {item.first_name} {item.last_name}
-          </strong>
-        </p>
-        <p className="m-0">{item.email}</p>
-      </div>
-    </li>
-  );
-};
 
-const ExampleSkeletonMedia = (props) => {
+const ExampleSkeletonMedia = () => {
   const [data, setData] = useState([]);
+
+  const Media = useCallback((item) => {
+    console.log("from media");
+    return (
+      <li key={item.id} className="item">
+        <div>
+          <img className="img" src={item.avatar} alt="" />
+        </div>
+        <div className="info">
+          <p className="m-0">
+            <strong>
+              {item.first_name} {item.last_name}
+            </strong>
+          </p>
+          <p className="m-0">{item.email}</p>
+        </div>
+      </li>
+    );
+  }, []);
+  
 
   useEffect(() => {
     // Intentionally delay the function execution

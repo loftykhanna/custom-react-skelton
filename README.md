@@ -1,6 +1,10 @@
 # Custom React Skeleton
 
 Custom React Skeleton components - [Live Demo](https://6286d040663ad60008b52e6a--resilient-sprinkles-3564ee.netlify.app/)
+
+## Performance
+
+By default all components - atoms and molecules are rendered using React.memo for boosting performance.
 ## Test Cases
 
 Intentionally No test cases are written because of time constraint

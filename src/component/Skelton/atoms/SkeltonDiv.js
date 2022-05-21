@@ -1,3 +1,4 @@
+import React from "react";
 import './styles.css';
 
 function SkeltonDiv({width ='50x', height='50px', type='box', borderRadius='0px'}) {
@@ -6,4 +7,4 @@ function SkeltonDiv({width ='50x', height='50px', type='box', borderRadius='0px'
   );
 }
 
-export default SkeltonDiv;
+export default React.memo(SkeltonDiv);

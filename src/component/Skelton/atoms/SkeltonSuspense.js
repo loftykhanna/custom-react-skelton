@@ -33,4 +33,4 @@ function SkeletonSuspense({
   return renderUI();
 }
 
-export default SkeletonSuspense;
+export default React.memo(SkeletonSuspense);

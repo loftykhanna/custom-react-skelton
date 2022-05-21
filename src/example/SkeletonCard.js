@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 import Skelton, { SkeltonSuspense } from "../component/Skelton";
 
@@ -6,7 +6,7 @@ import { fakeData } from "./fakeData";
 import "./style.css";
 
 
-const ExampleSkeletonCard = (props) => {
+const ExampleSkeletonCard = () => {
 
 
   const [data, setData] = useState([]);
@@ -22,17 +22,17 @@ const ExampleSkeletonCard = (props) => {
     });
   }, []);
 
-  const DataCard = (props) => {
+  const DataCard = useCallback((value) => {
     return (
       <div className="data-card">
         <figure className="img-container">
-          <img src={props.img} alt={props.title} />
+          <img src={value.img} alt={value.title} />
         </figure>
-        <h2>{props.title}</h2>
-        <p>{props.desc}</p>
+        <h2>{value.title}</h2>
+        <p>{value.desc}</p>
       </div>
     );
-  };
+  },[] );
 
   return (
     <div className="card-example-container">

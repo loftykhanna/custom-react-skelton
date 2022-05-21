@@ -1,3 +1,4 @@
+import React from "react";
 import "./styles.css";
 
 import SkeltonP from "./SkeltonP";
@@ -10,4 +11,4 @@ function SkeltonText({ count=1 }) {
   return <div className="skelton-text-container">{renderText()}</div>;
 }
 
-export default SkeltonText;
+export default React.memo(SkeltonText);
